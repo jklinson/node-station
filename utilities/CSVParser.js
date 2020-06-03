@@ -45,7 +45,7 @@ class CSVParser {
         this._tableObject = rowArray.map((eachRow, rowIndex) => {
             if (this._validateCSVByColumn(eachRow)) {
                 var rowObject = {};
-                eachRow.split(',').forEach((val, index) => {
+                eachRow.replace('\r', '').split(',').forEach((val, index) => {
                     rowObject['column_'+(index+1)] = val;
                 })
                 return rowObject;
